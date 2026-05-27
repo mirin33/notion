@@ -12,7 +12,11 @@
 
 body {
   overflow: hidden;
-  margin: 0 auto;
+  margin: 0;
+  display: flex;               
+  justify-content: center;   
+  align-items: flex-start;  
+  overflow: hidden;
   text-align: center;
   font-size: 23px;
   color: white;
@@ -43,7 +47,10 @@ a:visited  {
 
 .calculator {
 
-    transform: scale(0.5);
+    width: 100%;              
+    max-width: 400px;            
+    box-sizing: border-box;
+	transform: scale(0.5);
     transform-origin: top center;
     margin-bottom: -50%;
     display: inline-block;
