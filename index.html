@@ -12,7 +12,7 @@
 
 body {
   overflow: hidden;
-  margin: 0;
+  margin: 0 auto;
   display: flex;               
   justify-content: center;   
   align-items: flex-start;  
@@ -47,13 +47,9 @@ a:visited  {
 
 .calculator {
 
-    width: 100%;              
-    max-width: 400px;            
+    display: block;  
+    width: 100%;  
     box-sizing: border-box;
-	transform: scale(0.5);
-    transform-origin: top center;
-    margin-bottom: -50%;
-    display: inline-block;
     background: white;
     margin: 1% 0;
     color: black;
@@ -384,6 +380,23 @@ function degrees() {
   display.value = display.value * (180 / Math.PI);
 }
 
+	
+function fitCalculator() {
+  const calc = document.querySelector('.calculator');
+  calc.style.transform = 'none';
+  const naturalWidth = calc.scrollWidth;
+  const available = window.innerWidth;
+  const scale = available / naturalWidth;
+  if (scale < 1) {
+    calc.style.transform = `scale(${scale})`;
+    calc.style.transformOrigin = 'top left';
+    document.body.style.height = (calc.offsetHeight * scale) + 'px';
+  }
+}
+
+window.addEventListener('resize', fitCalculator);
+window.addEventListener('load', fitCalculator);
+	
 </script>
 
 </html>
